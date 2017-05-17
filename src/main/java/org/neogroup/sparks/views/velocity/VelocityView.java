@@ -7,6 +7,9 @@ import org.neogroup.sparks.views.View;
 
 import java.io.StringWriter;
 
+/**
+ * Velocity view
+ */
 public class VelocityView extends View {
 
     private static String TEMPLATE_PROCESSING_ERROR = "Error processing velocity template !!";
@@ -14,21 +17,39 @@ public class VelocityView extends View {
     private final Template template;
     private final VelocityContext context;
 
+    /**
+     * Constructor for the velocity view
+     * @param template velocity template
+     */
     public VelocityView(Template template) {
         this.template = template;
         this.context = new VelocityContext();
     }
 
+    /**
+     * Set a parameter to the view
+     * @param name name of parameter
+     * @param value value of parameter
+     */
     @Override
     public void setParameter(String name, Object value) {
         context.put(name, value);
     }
 
+    /**
+     * Get a view parameter
+     * @param name name of parameter
+     * @return value of parameter
+     */
     @Override
     public Object getParameter(String name) {
         return context.get(name);
     }
 
+    /**
+     * Renders the view to a string
+     * @return string
+     */
     @Override
     public String render() {
         String response = null;
