@@ -41,7 +41,6 @@ public class VelocityViewFactory extends ViewFactory<VelocityView> {
         engine.setProperty("classpath.resource.loader.class", ClasspathResourceLoader.class.getName());
         engine.setProperty("file.resource.loader.cache", "false");
         engine.setProperty("velocimacro.library.autoreload", "true");
-        engine.setProperty("resource.manager.cache.enabled", false);
         engine.setProperty(RuntimeConstants.VM_PERM_ALLOW_INLINE_REPLACE_GLOBAL, true);
     }
 
